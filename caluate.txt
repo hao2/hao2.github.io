@@ -1,0 +1,45 @@
+#include<stdio.h>   //计算器
+        void menu()   //自定义的菜单界面   
+        {
+            printf("--------------------\n");
+            printf("    请输入你的选择 \n");
+            printf("        1.+       \n");
+            printf("        2.-       \n");
+            printf("        3.*       \n");
+            printf("        4./       \n");
+            printf("--------------------\n");
+        }
+        int main()
+        {
+            int i = 0;
+            int j = 0;
+            int num = 0;    //计算结果存放在nun
+            int select = 0;  //选择的选项存放在select
+            do         //do-while 先执行再判断循环条件，即可实现重复计算功能
+            {
+                menu();    //打印出菜单界面
+                scanf("%d", &select);   //输入你的选项
+                printf("请输入计算值："); 
+                scanf("%d%d", &i, &j);    //输入要计算的数值
+                switch (select)    
+                {
+                case 1:
+                    printf("%d+%d=%d\n", i, j, num = i + j);   //实现加法功能
+                    break;
+                case 2:
+                    printf("%d-%d=%d\n", i, j, num = i - j);     //实现减法功能
+                    break;
+                case 3:
+                    printf("%d*%d=%d\n", i, j, num = i*j);      // 实现乘法功能
+                    break; 
+                case 4:
+                    printf("%d-%d=%d\n", i, j, num = i / j);      //实现除法功能
+                    break;
+                default:
+                    printf("输入有误重新选择");
+                    break;
+                }
+
+            } while (select);
+            return 0;
+        }

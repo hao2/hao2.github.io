@@ -1,33 +1,41 @@
-#include <sys/time.h>
-#include <signal.h>
-#include <stdio.h>
+#!/bin/bash
 
-void sig_timer(int signo)
-{
-    if(signo == SIGVTALRM)
-    {
-        printf("time over/n");
-        exit(0);
-    }
-    else
-        printf("other signo/n");
-}
-int main()
-{
-    struct itimerval timer = {0};
-    timer.it_value.tv_sec = 5;
-    timer.it_value.tv_usec = 10;
-    timer.it_interval.tv_sec = 0;
-    timer.it_interval.tv_usec = 0;
-    struct sigaction st_sig = {0};
-    st_sig.sa_handler = sig_timer;
-    if(sigaction(SIGVTALRM ,&st_sig,NULL) < 0)
-        printf("error to set sig proc/n");
-    if(setitimer(ITIMER_VIRTUAL,&timer,NULL) < 0)
-    {
-        printf("error to set timer/n");
-    }
-    sleep(10);
-    printf("sleep back/n");
-    return 0;
-}
+#date 计算出现在到你下次生日还有多少天，date +%s 把当前时间换算成秒数，以19700101日开始算
+
+read -p "please input you birth (ex>0912): " a  #提示你输出生日的月日的变量
+
+now=$(date +%m%d)                               #把当前月日设为变量值
+
+if [ "$now" == "$a" ]                           #如果当前日期等于生日时间  
+
+then                                            #那么
+
+echo "happy birthday to you"                    #输出祝福语句
+
+elif [ "$a" -gt "$now" ]                        #如果生日时间大于当前时间
+
+then                                            #则执行下面命令
+
+year=$(date +%Y)                                #把当前的年份设为变量
+
+b=$(date --date "$year$a" +%s)                  #把你今年的生日年月日换算成秒数
+
+c=$(date +%s)                                   #把当前时间换算成秒数
+
+d=$(($(($b-$c))/60/60/24))               #用生日时间秒数减去当前时间秒数再换算成天数
+
+echo "you birthday will be $d later"     #输出还有多少天过生日
+
+else                                     #如果你以经过完生日那么计算明年的生日
+
+year=$(($(date +%Y)+1))                  #把当前年月日加1年
+
+b=$(date --date "$year$a" +%s)           #把明年生日的年月日换算成秒数  
+
+c=$(date +%s)                            #把当前年月日换算成秒数    
+
+d=$(($(($b-$c))/60/60/24))               #用生日时间减去当前时间并换算成天数
+
+echo "you birthday will be $d later"     #输出下次过生日要过的天数
+
+fi                                       #结束

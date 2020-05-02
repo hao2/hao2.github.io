@@ -93,8 +93,20 @@
 			$("#code").typewriter();
 		}
 	</script>
-	<!--<audio id="bgmMusic" src="https://m8.music.126.net/20200427163100/a07cb08b6aa96ba2435adf02501f004d/ymusic/4b0f/7ce7/9752/727531534112f82375e34b744524c2e4.mp3" preload="auto" type="audio/mp3" autoplay loop></audio>-->
-	<!--<EMBED src="https://m8.music.126.net/20200426235125/336a48a3b12a783a1e7c606b33305386/ymusic/ff04/5838/d170/0a2672f3615fb7e58fa71c93fabe64df.mp3" loop="true">-->
-	<iframe src = "https://m7.music.126.net/20200429212411/4540486b4e92254c6e3137cf4196fa30/ymusic/4b0f/7ce7/9752/727531534112f82375e34b744524c2e4.mp3" allow = "autoplay"/>
+	<!--<audio id="wxx" src="#" preload="auto" type="audio/mp3" loop  muted="muted"></audio>-->
+	<!--<audio id="wxx" src="./renxi.mp3" preload="auto" type="audio/mp3" loop  muted="muted"></audio>-->
+	<!--<EMBED src="./.mp3" loop="true">-->
+	<iframe style="display:none;" id="wxx" src = "#" allow = "autoplay" /></iframe>
+	<script type="text/javascript">
+
+	$.ajax({
+    url: "https://api.imjad.cn/cloudmusic/?type=song&id=33206214",
+    type: "POST",
+    dataType: "json",
+    success: function(data) {
+        $("#wxx").attr("src", data.data[0].url+"?rel=0&amp&autoplay=1");//data.data[0].url;
+    }
+});
+	</script>
 </body>
 </html>

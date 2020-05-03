@@ -1,0 +1,112 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+
+	<title>欣欣，我爱你 </title>  
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<style type="text/css">
+		@font-face {
+			font-family: digit;
+			src: url("digital-7_mono.ttf"/*tpa=./digital-7_mono.ttf*/) format("truetype");
+		}
+	</style>
+	<link href="css/default.css" tppabs="./css/default.css" type="text/css" rel="stylesheet">
+	<script type="text/javascript" src="js/jquery.js" tppabs="./js/jquery.js"></script>
+	<script type="text/javascript" src="js/garden.js" tppabs="./js/garden.js"></script>
+    <script type="text/javascript" src="js/functions.js" tppabs="./js/functions.js"></script>
+<body>
+	<div id="mainDiv">
+		<div id="content">
+			<audio autoplay="autoplay" height="100" width="100">
+				<source src="renxi.mp3" type="audio/mp3" />
+				<embed height="100" width="100" src="renxi.mp3" />
+			</audio>
+			<div id="code">
+				<span class="comments">王欣欣：</span><br />
+				<span class="space"><span class="comments">我爱你</span></span><br />
+				<span class="space"/><span class="comments">今天是我们相爱的第30天，30天只占据我一生的万分之一，但是这30天的快乐却占据我从出生到现在的一半还多。回顾这30天的历程，这中间充满了快乐与惊喜。记着我刚追到你的时候，那时我突然间感觉到不知道该怎么办了，我就感觉自己像是突然中了一百万的彩票但是不知道该怎么花一样，可能是幸福来的太突然了吧。</span><br />
+				<span class="space"/><span class="comments">欣欣，在度过最初的不知所措之后我们进入了专属于我们自己的热恋时期。在这段时期里，我每天都对你说N次我爱你，但是我感觉还不够，总感觉越说我爱你，我对你的爱就越深，感觉每次和你聊天的时候都是我最开心的时刻。欣欣，我喜欢你。</span><br />
+				<span class="space"/><span class="comments">欣欣，每次和你说情话的时候总是我一天中最开心的时候，我每天从早上就开始期待晚上那段开心时刻的到来。这段时间里因为疫情的影响我们迟迟不能开学，我的内心特别期待，希望能赶紧开学，这样我们就可以在一起，我就可以抱抱你，抚摸你那柔软的头发，摸摸你那漂亮的脸颊，拉着你那可爱的小手，一直不分开。</span><br />
+				<span class="space"/><span class="comments">欣欣，这算是我给你写的第一份情书，原谅我语文能力实在太差，写不出来太多的甜言蜜语，但是你要相信我是真心爱你真心喜欢你的。答应我，永远永远不离开我，永远永远和我在一起，和我一起白头到老好吗？</span><br />
+				<span class="space"/><span class="comments"><div style="float:right;">永远永远爱你的大猪蹄子&nbsp;&nbsp;2020.05.03</div></span><br />
+			</div>
+			<div id="loveHeart">
+				<canvas id="garden"></canvas>
+				<div id="words">
+					<div id="messages">
+						欣欣, 这是我们相爱的第
+						<div id="elapseClock"></div>
+					</div>
+					<div id="loveu">
+						永远爱你，一辈子，不分离！<br/>
+						<div class="signature">- 大猪蹄子</div>
+
+				</div>
+			</div>
+</div>
+	<div class="bg1">	
+		<div class="main">
+			<footer style="line-height:20px">
+                <div id="copyright">
+                  <p><a href='http://51bbw.cn' target="_blank"></a> 
+                    <a href="http://ymjzy.net" target="_blank"></a>
+                    <a href="" target="_blank"></a></p>
+
+                </div>
+		</div>
+	</div>
+</div>
+	<script type="text/javascript">
+		var offsetX = $("#loveHeart").width() / 2;
+		var offsetY = $("#loveHeart").height() / 2 - 55;
+		var together = new Date();
+		together.setFullYear(2014, 07, 21);
+		together.setHours(20);
+		together.setMinutes(0);
+		together.setSeconds(0);
+		together.setMilliseconds(0);
+		
+		if (!document.createElement('canvas').getContext) {
+			var msg = document.createElement("div");
+			msg.id = "errorMsg";
+			msg.innerHTML = "提醒您：您的浏览器版本过旧^_^<br/>"+
+				"推荐使用 <a href='http://dlsw.br.baidu.com/ditui/zujian/bdBrowserSetup-5956-ftn_1000061134.exe' target='_blank'>百度浏览器<br/>请先升级您的浏览器，效果很炫哦~~"; 
+			document.body.appendChild(msg);
+			$("#code").css("display", "none")
+			$("#copyright").css("position", "absolute");
+			$("#copyright").css("bottom", "10px");
+		    document.execCommand("stop");
+		} else {
+			setTimeout(function () {
+				adjustWordsPosition();
+				startHeartAnimation();
+			}, 5000);
+
+			timeElapse(together);
+			setInterval(function () {
+				timeElapse(together);
+			}, 500);
+
+			adjustCodePosition();
+			$("#code").typewriter();
+		}
+	</script>
+	<!--<audio id="wxx" src="#" preload="auto" type="audio/mp3" loop  muted="muted"></audio>-->
+	<!--<audio id="wxx" src="./renxi.mp3" preload="auto" type="audio/mp3" loop  muted="muted"></audio>-->
+	<!--<EMBED src="./.mp3" loop="true">-->
+	<iframe style="display:none;" id="wxx" src = "#" allow = "autoplay" /></iframe>
+	<script type="text/javascript">
+
+	$.ajax({
+    url: "https://api.imjad.cn/cloudmusic/?type=song&id=33206214",
+    type: "POST",
+    dataType: "json",
+    success: function(data) {
+        $("#wxx").attr("src", data.data[0].url+"?rel=0&amp&autoplay=1");//data.data[0].url;
+    }
+});
+	</script>
+</body>
+</html>
